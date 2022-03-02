@@ -1,0 +1,18 @@
+{
+  "CONTRACT_ADDRESS": "0xdCBE10CDC942F4D2DbDF5eD508b0Ec78d4585b0D",
+  "SCAN_LINK": "https://songbird-explorer.flare.network/tokens/0xdCBE10CDC942F4D2DbDF5eD508b0Ec78d4585b0D/",
+  "NETWORK": {
+    "NAME": "Songbird ",
+    "SYMBOL": "SGB",
+    "ID": 19
+  },
+  "NFT_NAME": "Oracle NFT",
+  "SYMBOL": "ORCL",
+  "MAX_SUPPLY": 1111,
+  "WEI_COST": 999000000000000000000,
+  "DISPLAY_COST": 999,
+  "GAS_LIMIT": 2500000,
+  "MARKETPLACE": "https://oracleswap.io/",
+  "MARKETPLACE_LINK": "https://oracleswap.io/",
+  "SHOW_BACKGROUND": true
+}
