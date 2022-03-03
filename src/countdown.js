@@ -1,98 +1,81 @@
-import React from "react";
-import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import "./timerstyles.css";
+import React, { useEffect, useState, useRef, Component } from "react";
+import './timerstyles.css';
 
-const minuteSeconds = 60;
-const hourSeconds = 3600;
-const daySeconds = 86400;
+class CountDown extends React.Component {
+    state = {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+        isExpired: false,
+    };
 
-const timerProps = {
-  isPlaying: true,
-  size: 120,
-  strokeWidth: 6
-};
+    componentDidMount() {
+        this.setDate();
+        this.counter();
+    }
 
-const renderTime = (dimension, time) => {
-  return (
-    <div className="time-wrapper">
-      <div className="time">{time}</div>
-      <div>{dimension}</div>
-    </div>
-  );
-};
+    setDate = () => {
+        const contDownDate = new Date("March 22, 2022 00:01:00").getTime();
+        const currentDate = new Date().getTime();
 
-const getTimeSeconds = (time) => (minuteSeconds - time) | 0;
-const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) | 0;
-const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) | 0;
-const getTimeDays = (time) => (time / daySeconds) | 0;
+        this.distance = contDownDate - currentDate;
 
-export default function countdownTimer() {
-  const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
-  const endTime = stratTime + 243248; // use UNIX timestamp in seconds
+        if (this.distance < 0) {
+            clearInterval(this.timer);
+            this.setState({
+                isExpired: true,
+            });
+        } else {
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
 
-  const remainingTime = endTime - stratTime;
-  const days = Math.ceil(remainingTime / daySeconds);
-  const daysDuration = days * daySeconds;
+            this.setState({
+                days: Math.floor(this.distance / day),
+                hours: Math.floor((this.distance % day) / hour),
+                minutes: Math.floor((this.distance % hour) / minute),
+                seconds: Math.floor((this.distance % minute) / second),
+                isExpired: false,
+            });
+        }
+    };
 
-  return (
-    <div className="Timer">
-      <CountdownCircleTimer
-        {...timerProps}
-        colors="#7E2E84"
-        duration={daysDuration}
-        initialRemainingTime={remainingTime}
-      >
-        {({ elapsedTime, color }) => (
-          <span style={{ color }}>
-            {renderTime("days", getTimeDays(daysDuration - elapsedTime))}
-          </span>
-        )}
-      </CountdownCircleTimer>
-      <CountdownCircleTimer
-        {...timerProps}
-        colors="#D14081"
-        duration={daySeconds}
-        initialRemainingTime={remainingTime % daySeconds}
-        onComplete={(totalElapsedTime) => ({
-          shouldRepeat: remainingTime - totalElapsedTime > hourSeconds
-        })}
-      >
-        {({ elapsedTime, color }) => (
-          <span style={{ color }}>
-            {renderTime("hours", getTimeHours(daySeconds - elapsedTime))}
-          </span>
-        )}
-      </CountdownCircleTimer>
-      <CountdownCircleTimer
-        {...timerProps}
-        colors="#EF798A"
-        duration={hourSeconds}
-        initialRemainingTime={remainingTime % hourSeconds}
-        onComplete={(totalElapsedTime) => ({
-          shouldRepeat: remainingTime - totalElapsedTime > minuteSeconds
-        })}
-      >
-        {({ elapsedTime, color }) => (
-          <span style={{ color }}>
-            {renderTime("minutes", getTimeMinutes(hourSeconds - elapsedTime))}
-          </span>
-        )}
-      </CountdownCircleTimer>
-      <CountdownCircleTimer
-        {...timerProps}
-        colors="#218380"
-        duration={minuteSeconds}
-        initialRemainingTime={remainingTime % minuteSeconds}
-        onComplete={(totalElapsedTime) => ({
-          shouldRepeat: remainingTime - totalElapsedTime > 0
-        })}
-      >
-        {({ elapsedTime, color }) => (
-          <span style={{ color }}>
-            {renderTime("seconds", getTimeSeconds(elapsedTime))}
-          </span>
-        )}
-      </CountdownCircleTimer>
-    </div>
-  );
+    counter = () => {
+        this.timer = setInterval(() => {
+            this.setDate();
+        }, 1000);
+    };
+
+    render() {
+        const { days, hours, minutes, seconds, isExpired } = this.state;
+        return (
+            <div>
+                <div className="new-year-container">
+                    <h2>Sacrifice/Mint Phase Ends In</h2>
+                    <div className="time-box">
+                        <div className="days">
+                            <h2>{days}</h2>
+                            <p>DAYS</p>
+                        </div>
+                        <div className="hours">
+                            <h2>{hours}</h2>
+                            <p>HOURS</p>
+                        </div>
+                        <div className="minutes">
+                            <h2>{minutes}</h2>
+                            <p>MINUTES</p>
+                        </div>
+                        <div className="seconds">
+                            <h2>{seconds}</h2>
+                            <p>SECONDS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
+
+export default CountDown;

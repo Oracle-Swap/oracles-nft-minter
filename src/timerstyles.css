@@ -1,12 +1,79 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .Timer {
-    display: flex;
-    justify-content: space-around;
-    font-family: sans-serif;
-    text-align: center;
-    padding-top: 40px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
+  height: 100vh;
+}
+
+.new-year-container {
+  text-align: center;
+  width: inherit;
+}
+
+.new-year-container h2 {
+  width: inherit;
+  font-size: 50px;
+  margin: 25px 0;
+  color: rgb(255, 0, 0);
+}
+
+.time-box {
+  display: flex;
+  width: inherit;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 3px solid #eabe2a;
+}
+
+.time-box h2,
+p {
+  width: inherit;
+}
+
+.days,
+.hours,
+.minutes,
+.seconds {
+  font-size: 25px;
+  color: #fff;
+  margin: 0 10px;
+  padding: 20px;
+  animation: animate 3s linear infinite;
+  text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff,
+    0 0 200px #0072ff;
+}
+
+.hours {
+  animation-delay: 0.3s;
+}
+
+.minutes {
+  animation-delay: 0.7s;
+}
+
+.seconds {
+  animation-delay: 0.1s;
+}
+
+@keyframes animate {
+  from {
+    filter: hue-rotate(0deg);
   }
-  
-  .time {
-    font-size: 32px;
+  to {
+    filter: hue-rotate(360deg);
   }
-  
+}
