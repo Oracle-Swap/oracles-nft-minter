@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef, Component } from "react";
 import './timerstyles.css';
+import * as s from "./styles/globalStyles";
+import styled from "styled-components";
 
 class CountDown extends React.Component {
     state = {
@@ -51,9 +53,20 @@ class CountDown extends React.Component {
     render() {
         const { days, hours, minutes, seconds, isExpired } = this.state;
         return (
-            <div>
+            <s.Container
+                flex={2}
+                jc={"center"}
+                ai={"center"}
+                style={{
+                    backgroundColor: "var(--accent)",
+                    padding: 24,
+                    borderRadius: 24,
+                    border: "4px solid var(--secondary)",
+                    boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+                }}
+            >
                 <div className="new-year-container">
-                    <h2>Sacrifice/Mint Phase Ends In</h2>
+                    <h2>Sacrifice / Mint Phase Ends In</h2>
                     <div className="time-box">
                         <div className="days">
                             <h2>{days}</h2>
@@ -73,7 +86,7 @@ class CountDown extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </s.Container>
         );
     }
 }
