@@ -23,7 +23,7 @@
 .new-year-container h2 {
   width: inherit;
   font-size: 50px;
-  margin: 25px 0;
+  margin: 15px 0;
   color: rgb(255, 0, 0);
 }
 
@@ -47,7 +47,7 @@ p {
   font-size: 25px;
   color: #fff;
   margin: 0 10px;
-  padding: 20px;
+  padding: 10px;
   animation: animate 3s linear infinite;
   text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff,
     0 0 200px #0072ff;
