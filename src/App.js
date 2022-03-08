@@ -5,6 +5,9 @@ import { fetchData } from "./redux/data/dataActions";
 import * as s from "./styles/globalStyles";
 import styled from "styled-components";
 import CountDown from "./countdown";
+import Web3 from "web3";
+import { FaTelegramPlane, FaDiscord, FaTwitter } from "react-icons/fa";
+
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -33,7 +36,7 @@ export const StyledRoundButton = styled.button`
   padding: 10px;
   border-radius: 100%;
   border: none;
-  background-color: var(--primary);
+  background-color: var(--secondary);
   padding: 10px;
   font-weight: bold;
   font-size: 15px;
@@ -124,7 +127,7 @@ function App() {
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
-    let totalCostWei = String(cost * mintAmount);
+    let totalCostWei = Web3.utils.toHex(String(cost * mintAmount));
     let totalGasLimit = String(gasLimit * mintAmount);
     console.log("Cost: ", totalCostWei);
     console.log("Gas limit: ", totalGasLimit);
@@ -163,7 +166,7 @@ function App() {
 
   const incrementMintAmount = () => {
     let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 1) {
+    if (newMintAmount > 50) {
       newMintAmount = 1;
     }
     setMintAmount(newMintAmount);
@@ -204,10 +207,24 @@ function App() {
       >
         <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
 
+        <div className="social-container">
+
+          <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/Oracle_Swap">
+            <FaTwitter color="gold" size={40} />
+          </a>
+          <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/WbDnWcRBxw">
+            <FaDiscord color="gold" size={40}  />
+          </a>
+
+          <a target="_blank" rel="noopener noreferrer" href="https://t.me/OracleSwapOffical">
+            <FaTelegramPlane color="gold" size={40} />
+          </a>
+
+        </div>
+
 
 
         <s.SpacerSmall />
-
 
         <s.Container
           flex={2}
@@ -222,18 +239,12 @@ function App() {
           }}
         >
           <CountDown />
-          
+          <br />
+          <StyledLink target={"_blank"} href={"https://discord.gg/jbncxhT393"}>
+            {"CLICK HERE TO SEE ORACLESWAP.IO"}
+          </StyledLink>
+
           <s.SpacerLarge />
-
-          <s.TextTitle
-            style={{
-              textAlign: "center",
-              color: "white",
-            }}
-          >
-            When the Oracle Sacrifice/Mint phase is over, the snapshot is taken and the airdrop is completed this site will be converted to the Oracle Swap DEX application.
-
-          </s.TextTitle>
 
         </s.Container>
 
@@ -260,7 +271,7 @@ function App() {
               color: "var(--accent-text)",
             }}
           >
-            Ω Oracle Swap DEX Sacrifice Ω
+            Ω THE PLEDGE | Oracle Swap DEX Ω
           </s.TextTitle>
 
           <s.TextTitle
@@ -280,17 +291,13 @@ function App() {
             }}
           >
             <p></p>
-            The Oracle Swap sacrifice is creating a set of people who believe that crypto is the future of our world, currency and economies.
-            <p></p>
             Our world is collapsing before our very eyes. Cryptocurrency is an obvious solution to many of the problems our world currently faces.
             <p></p>
-            If you agree with this, then you can show your support by minting ORACLE NFTs.
+            You are making THE PLEDGE to prove how strongly you believe in the importance of crypto currencies and their integral role in our collective future, and the importance of decentralized networks and exchanges in the effort to combat the central banks stranglehold on the world. If you agree with this, then you can show your support by making a pledge via minting an ONFT.
+            If you support this movement and participate in THE PLEDGE, you will be airdropped free tokens. These tokens will have no value. Remember, this is not an investment of any kind, you should have no expectations of profit from the work of others. This is a pledge  to show you support a decentralized and autonomous blockchain future free from the chains and restrictions placed upon us by corrupt banks and institutions.
             <p></p>
-            If you support this movement and participate in the oracle minting sacrifice, you will be airdropped free tokens. These tokens will have no value.
-            <p></p>
-            Remember, this is not an investment of any kind, you should have no expectations of profit from the work of others. This is a sacrifice to show you support blockchain/crypto as the future of currency.
-            <p></p>
-            If you do NOT wish to support, you do not need to do anything.
+            If you do NOT wish to support, you do not need to do anything.You must have no expectation of profit from the work of others. The set of people who have made THE PLEDGE to show their commitment to this political statement makes a great set of people to airdrop free things to. These PLEDGE Points are not meant to have any monetary value. Remember, you're not buying anything, the world is just noticing you are amongst a group of people that pledged to make a political statement. Some countries tax their citizens when they receive things of value. $ORACLE is designed to start with no value, which is ideal. Consult your own legal and financial professionals, as nothing written here should be considered professional advice. The only thing we know of set to be airdropped for free to this political group so far is Oracle Dex Token ($ORACLE) If we introduce anything else we'll let you know via our social media outlets.
+
 
 
           </s.TextDescription>
@@ -577,7 +584,7 @@ function App() {
         </s.Container>
 
         <s.SpacerLarge />
-   
+
 
         <s.Container
           flex={2}
@@ -608,7 +615,7 @@ function App() {
               color: "white",
             }}
           >
-            
+
             The $ORACLE token is the token for the Oracle Swap DEX on Songbird Network. You can Stake this token to earn a percentage of the DEX transaction fees.
             <p></p>
             Here is a demo video of the Oracle Swap DEX!
@@ -628,19 +635,13 @@ function App() {
           </s.TextDescription>
 
         </s.Container>
-        
+
         <s.SpacerLarge />
 
         <s.SpacerLarge />
 
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
-
-
-          <StyledLink target={"_blank"} href={"https://discord.gg/jbncxhT393"}>
-            {"CLICK HERE TO GET MORE INFO ON DISCORD"}
-          </StyledLink>
-          <s.SpacerSmall />
 
         </s.Container>
 
