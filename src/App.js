@@ -126,11 +126,12 @@ function App() {
   });
 
   const claimNFTs = () => {
-    let cost = CONFIG.WEI_COST;
-    let totalCostWei = Web3.utils.toHex(String(cost * mintAmount));
+    let cost = CONFIG.ETH_COST;
+    let totalCostEther = String(cost * mintAmount);
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit * mintAmount);
-    console.log("Cost: ", totalCostWei);
+    console.log("Cost: ", totalCostEther);
+    console.log("WEB3 ETHER TO WEI Cost: ", Web3.utils.toWei(totalCostEther, "ether"));
     console.log("Gas limit: ", totalGasLimit);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
@@ -140,7 +141,7 @@ function App() {
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
-        value: totalCostWei,
+        value: Web3.utils.toWei(totalCostEther, "ether"),
       })
       .once("error", (err) => {
         console.log(err);
@@ -160,7 +161,7 @@ function App() {
   const decrementMintAmount = () => {
     let newMintAmount = mintAmount - 1;
     if (newMintAmount < 1) {
-      newMintAmount = 1;
+      newMintAmount = 50;
     }
     setMintAmount(newMintAmount);
   };
@@ -480,6 +481,7 @@ function App() {
                   >
                     {feedback}
                   </s.TextDescription>
+
                   <s.SpacerMedium />
                   <s.Container ai={"center"} jc={"center"} fd={"row"}>
                     <StyledRoundButton
@@ -493,6 +495,7 @@ function App() {
                       -
                     </StyledRoundButton>
                     <s.SpacerMedium />
+                    
                     <s.TextDescription
                       style={{
                         textAlign: "center",
