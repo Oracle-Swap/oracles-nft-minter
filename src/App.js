@@ -7,6 +7,7 @@ import styled from "styled-components";
 import CountDown from "./countdown";
 import Web3 from "web3";
 import { FaTelegramPlane, FaDiscord, FaTwitter } from "react-icons/fa";
+import mainLogo from './songbird-flare.png';
 
 
 const truncate = (input, len) =>
@@ -213,13 +214,17 @@ function App() {
             <FaTwitter color="gold" size={40} />
           </a>
           <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/WbDnWcRBxw">
-            <FaDiscord color="gold" size={40}  />
+            <FaDiscord color="gold" size={40} />
           </a>
 
           <a target="_blank" rel="noopener noreferrer" href="https://t.me/OracleSwapOffical">
             <FaTelegramPlane color="gold" size={40} />
           </a>
 
+        </div>
+
+        <div className="container">
+          <img src={mainLogo} width="250" alt="FlareSongbirdNetwork" />
         </div>
 
 
@@ -293,13 +298,53 @@ function App() {
             <p></p>
             Our world is collapsing before our very eyes. Cryptocurrency is an obvious solution to many of the problems our world currently faces.
             <p></p>
-            You are making THE PLEDGE to prove how strongly you believe in the importance of crypto currencies and their integral role in our sovereign collective future, and the importance of decentralized networks and exchanges in the effort to combat the central banks stranglehold on the world. If you agree with this, then you can show your support by making a pledge via minting an ONFT.
+            You are making THE PLEDGE to prove how strongly you believe in the importance of freedom in cryptocurrency and exchange. We believe Crypto currencies play an integral role in our sovereign collective future. We recognize the importance of decentralized networks and exchanges in the effort to combat the central banks stranglehold on the world. If you agree with this, then you can show your support by making a pledge via minting a PLEDGE NFT.
             If you support this movement and participate in THE PLEDGE, you will be airdropped free tokens. These tokens will have no value. Remember, this is not an investment of any kind, you should have no expectations of profit from the work of others. This is a pledge  to show you support a decentralized and autonomous blockchain future free from the chains and restrictions placed upon us by corrupt banks and institutions.
             <p></p>
-            If you do NOT wish to support, you do not need to do anything.You must have no expectation of profit from the work of others. The set of people who have made THE PLEDGE to show their commitment to this political statement makes a great set of people to airdrop free things to. These PLEDGE Points are not meant to have any monetary value. Remember, you're not buying anything, the world is just noticing you are amongst a group of people that pledged to make a political statement. Some countries tax their citizens when they receive things of value. $ORACLE is designed to start with no value, which is ideal. Consult your own legal and financial professionals, as nothing written here should be considered professional advice. The only thing we know of set to be airdropped for free to this political group so far is Oracle Dex Token ($ORACLE) If we introduce anything else we'll let you know via our social media outlets.
+            You must have no expectation of profit from the work of others. The set of people who have made THE PLEDGE to show their commitment to this political statement makes a great set of people to airdrop free things to. These PLEDGE Points are not meant to have any monetary value. Remember, you're not buying anything, the world is just noticing you are amongst a group of people that pledged to make a political statement. Some countries tax their citizens when they receive things of value. $ORACLE is designed to start with no value, which is ideal. Consult your own legal and financial professionals, as nothing written here should be considered professional advice. The only thing we know of set to be airdropped for free to this political group so far is Oracle Swap Dex Token ($ORACLE). If we introduce anything else we'll let you know via our social media outlets.
+            <p />
+            If you do NOT wish to support, you do not need to do anything.
+
+          </s.TextDescription>
+
+        </s.Container>
 
 
+        <s.SpacerLarge />
+        <s.Container
+          flex={2}
+          jc={"center"}
+          ai={"center"}
+          style={{
+            backgroundColor: "red",
+            padding: 24,
+            borderRadius: 24,
+            border: "4px solid var(--secondary)",
+            boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+          }}
+        >
+          <s.TextTitle
+            style={{
+              textAlign: "center",
+              fontSize: 30,
+              fontWeight: "bold",
+              color: "var(--accent-text)",
+            }}
+          >
+            📈 BONDING CURVE 📈
+          </s.TextTitle>
 
+          <s.TextDescription
+            style={{
+              textAlign: "center",
+              color: "var(--primary-text)",
+            }}
+          >
+            You get the most Oracle Airdrop Points if you make the pledge within the first 10 days of the pledge phase.
+            <p></p>
+            After the first 10 days the cost to mint a PLEDGE NFT increases by 10% everyday.
+            For example: On day 11 it will cost 1100 to mint a PLEDGE NFT. On day 12 it will cost 1200 to mint a pledge NFT. Etc…
+            <p />
           </s.TextDescription>
 
         </s.Container>
@@ -499,6 +544,19 @@ function App() {
           </s.TextDescription>
           <s.SpacerSmall />
 
+
+          <s.TextTitle
+            style={{
+              textAlign: "center",
+              fontSize: 20,
+              fontWeight: "bold",
+              color: "var(--accent-text)",
+            }}
+          >
+            THE PLEDGE NFT 🖼
+          </s.TextTitle>
+          <iframe width="auto" height="auto" src="https://ipfs.io/ipfs/QmYY2xnczParL26ncRfxQvSqwCiZ3CmkiKKNNQhBMd2zxV" frameborder="0" allowfullscreen="true"></iframe>
+
           <s.TextDescription
             style={{
               textAlign: "center",
@@ -507,7 +565,7 @@ function App() {
           >
             Please make sure you are connected to the right network (
             {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
-            Once you mint your NFTs your sacrifice is locked in, you cannot undo this action.
+            Once you mint your NFTs your pledgefice is locked in, you cannot undo this action.
           </s.TextDescription>
           <s.SpacerSmall />
           <s.TextDescription
@@ -557,9 +615,9 @@ function App() {
             }}
           >
 
-            For participating in the Mint/Sacrifice, you will receive points. For every Oracle NFT you mint/hold you will get 10,000 airdrop points. Anyone with these points will be airdropped free tokens called $ORACLE.
+            For participating in the Mint/Pledge, you will receive points. For every Oracle PLEDGE NFT you mint/hold you will get 10,000 airdrop points. Anyone with these points will be airdropped free tokens called $ORACLE.
             <p></p>
-            The $ORACLE tokens will be airdropped to all participants who Minted/Sacrificed for their belief and support of a cryptocurrency future.
+            The $ORACLE tokens will be airdropped to all participants who Minted/Pledged for their belief and support of a cryptocurrency future.
             <p></p>
             A small portion of $ORACLE tokens will be airdropped to Wrapped Songbird holders. About 1000 $ORACLE tokens per holder. It doesn't matter how much $WSGB you hold.
             <p></p>
@@ -573,10 +631,9 @@ function App() {
             <p></p>
             So if you hold 5 $PEPE NFTs you will get 5,000 Airdrop Points
             <p></p>
-            The Mint/Sacrifice will start on March 14th @ 12:00 P.M. UTC. and ends March 22nd @ 12:P.M. UTC.
+            The Mint/Pledge will start on March 14th @ 12:00 P.M. UTC. and ends March 22nd @ 12:P.M. UTC.
             <p></p>
-            We recommend holding all of these NFTs until the Airdrop is over.
-
+            ⚠ MAKE SURE YOU ARE HOLDING ALL OF YOUR NFTS AT THE TIME OF THE SNAPSHOT AND UNTIL THE AIRDROP IS OFFICIALLY COMPLETE. IF YOU ARE NOT HOLDING THE NFTS AT THE TIME OF THE SNAPSHOT/AIRDROP YOU MAY BE MISSED!!
 
 
           </s.TextDescription>
@@ -636,17 +693,13 @@ function App() {
 
         </s.Container>
 
-        <s.SpacerLarge />
-
-        <s.SpacerLarge />
-
         <s.SpacerMedium />
+
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
 
         </s.Container>
 
         <s.SpacerLarge />
-
 
 
       </s.Container>
