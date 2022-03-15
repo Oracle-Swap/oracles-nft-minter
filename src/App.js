@@ -70,6 +70,18 @@ export const ResponsiveWrapper = styled.div`
   }
 `;
 
+export const RoundButtonWrapper = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  @media (min-width: 767px) {
+    flex-direction: row;
+  }
+`;
+
 export const StyledLogo = styled.img`
   width: 100px;
   @media (min-width: 767px) {
@@ -483,6 +495,8 @@ function App() {
                   </s.TextDescription>
 
                   <s.SpacerMedium />
+
+                  <RoundButtonWrapper>  
                   <s.Container ai={"center"} jc={"center"} fd={"row"}>
                     <StyledRoundButton
                       style={{ lineHeight: 0.4 }}
@@ -495,7 +509,7 @@ function App() {
                       -
                     </StyledRoundButton>
                     <s.SpacerMedium />
-                    
+
                     <s.TextDescription
                       style={{
                         textAlign: "center",
@@ -515,6 +529,7 @@ function App() {
                       +
                     </StyledRoundButton>
                   </s.Container>
+                  </RoundButtonWrapper>
 
                   <s.SpacerSmall />
                   <s.Container ai={"center"} jc={"center"} fd={"row"}>
@@ -689,7 +704,7 @@ function App() {
             }}
           >
 
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/kMyNBHgq7EA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/frse6sPepPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
           </s.TextDescription>
