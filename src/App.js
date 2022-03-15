@@ -127,8 +127,8 @@ function App() {
 
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
-    let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = Web3.utils.toHex(String(cost * mintAmount));
+    let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit * mintAmount);
     console.log("Cost: ", totalCostWei);
     console.log("Gas limit: ", totalGasLimit);
