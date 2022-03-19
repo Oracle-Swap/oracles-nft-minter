@@ -75,7 +75,7 @@ p {
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
   .new-year-container {
     text-align: center;
     width: inherit;
@@ -83,13 +83,12 @@ p {
   
   .new-year-container h2 {
     width: inherit;
-    font-size: 40px;
+    font-size: 20px;
     margin: 10px;
     color: rgb(255, 0, 0);
   }
   
   .time-box {
-    display: flex;
     width: 200px;
     text-align: center;
     justify-content: center;
@@ -107,7 +106,7 @@ p {
   .hours,
   .minutes,
   .seconds {
-    font-size: 15px;
+    font-size: 10px;
     color: #fff;
     margin: 0 3px;
     padding: 5px;
