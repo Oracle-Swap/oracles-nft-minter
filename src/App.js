@@ -8,6 +8,7 @@ import CountDown from "./countdown";
 import Web3 from "web3";
 import { FaTelegramPlane, FaDiscord, FaTwitter } from "react-icons/fa";
 import mainLogo from './songbird-flare.png';
+import loop from './bg.mp4'
 
 
 const truncate = (input, len) =>
@@ -79,13 +80,15 @@ export const RoundButtonWrapper = styled.div`
   width: 50%;
   @media (min-width: 767px) {
     flex-direction: row;
+    width: 50%;
+
   }
 `;
 
 export const StyledLogo = styled.img`
-  width: 100px;
+  width: 75px;
   @media (min-width: 767px) {
-    width: 100px;
+    width: 75px;
   }
   transition: width 0.5s;
   transition: height 0.5s;
@@ -116,7 +119,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
+  const [feedback, setFeedback] = useState(`You are getting closer!`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -213,37 +216,58 @@ function App() {
   return (
     <s.Screen>
       <ResponsiveWrapper>
+        <video 
+          autoPlay
+          loop
+          muted
+          style={{
+            position: "fixed", 
+            width: "100%",
+            left: "50%",
+            top: "50%",
+            height: "100%",
+            objectFit: "cover",
+            transform: "translate(-50%, -50%)",
+            zIndex: "-1",
+
+
+          }}>
+            
+            <source src={loop} type="video/mp4" />
+
+        </video>
+
         <s.Container
           flex={1}
           ai={"center"}
           style={{ padding: 24, backgroundColor: "var(--primary)", }}
-          image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.jpg" : null}
+          // image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.gif" : null}
         >
-          <a target="_blank" rel="noopener noreferrer" href="https://oracleswap.io">
+          <a rel="noopener noreferrer" href="https://oracleswap.io">
             <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
           </a>
 
           <div className="social-container">
 
             <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/Oracle_Swap">
-              <FaTwitter color="gold" size={40} />
+              <FaTwitter color="gold" size={30} />
             </a>
             <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/WbDnWcRBxw">
-              <FaDiscord color="gold" size={40} />
+              <FaDiscord color="gold" size={30} />
             </a>
 
             <a target="_blank" rel="noopener noreferrer" href="https://t.me/OracleSwapOffical">
-              <FaTelegramPlane color="gold" size={40} />
+              <FaTelegramPlane color="gold" size={30} />
             </a>
 
           </div>
 
-          <div className="container">
+          {/* <div className="container">
             <img src={mainLogo} width="200" alt="FlareSongbirdNetwork" />
-          </div>
+          </div> */}
 
 
-
+{/* 
           <s.SpacerSmall />
 
           <s.Container
@@ -270,7 +294,7 @@ function App() {
 
 
 
-          <s.SpacerLarge />
+          <s.SpacerLarge /> */}
           {/* <s.Container
             flex={2}
             jc={"center"}
@@ -369,7 +393,7 @@ function App() {
           </div> */}
 
 
-          <s.SpacerLarge />
+          {/* <s.SpacerLarge />
           <s.Container
             flex={2}
             jc={"center"}
@@ -406,7 +430,7 @@ function App() {
               <p />
             </s.TextDescription>
 
-          </s.Container>
+          </s.Container> */}
 
           <s.SpacerLarge />
           <s.Container
@@ -415,13 +439,13 @@ function App() {
             ai={"center"}
             style={{
               backgroundColor: "var(--gold-gradient-box)",
-              padding: 24,
-              borderRadius: 24,
-              border: "4px solid var(--secondary)",
-              boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+              padding: 1,
+              // borderRadius: 24,
+              // border: "4px solid var(--secondary)",
+              // boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
-            <s.TextTitle
+            {/* <s.TextTitle
               style={{
                 textAlign: "center",
                 color: "white",
@@ -439,7 +463,7 @@ function App() {
               }}
             >
               1 Oracle PLEDGE NFT = 10,000 Airdrop Points
-            </s.TextTitle>
+            </s.TextTitle> */}
 
             <s.TextTitle
               style={{
@@ -447,6 +471,7 @@ function App() {
                 fontSize: 30,
                 fontWeight: "bold",
                 color: "var(--accent-text)",
+                
               }}
             >
               {data.totalSupply} / {CONFIG.MAX_SUPPLY}
@@ -485,10 +510,10 @@ function App() {
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
                   {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
-                  {CONFIG.NETWORK.SYMBOL}.
+                  {CONFIG.NETWORK.SYMBOL}
                 </s.TextTitle>
                 <s.SpacerXSmall />
-
+{/* 
                 <s.TextTitle
                   style={{
                     textAlign: "center",
@@ -501,21 +526,21 @@ function App() {
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
                   Excluding gas fees.
-                </s.TextDescription>
+                </s.TextDescription> */}
 
 
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
                   blockchain.smartContract === null ? (
                   <s.Container ai={"center"} jc={"center"}>
-                    <s.TextDescription
+                    {/* <s.TextDescription
                       style={{
                         textAlign: "center",
                         color: "var(--accent-text)",
                       }}
                     >
                       Connect to the {CONFIG.NETWORK.NAME} network
-                    </s.TextDescription>
+                    </s.TextDescription> */}
                     <s.SpacerSmall />
                     <StyledButton
                       onClick={(e) => {
@@ -553,8 +578,7 @@ function App() {
 
                     <s.SpacerMedium />
 
-                    <RoundButtonWrapper>
-                      <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                      <s.Container ai={"center"} jc={"center"} fd={"row"} style={{width: 125}}>
                         <StyledRoundButton
                           style={{ lineHeight: 0.4 }}
                           disabled={claimingNft ? 1 : 0}
@@ -571,6 +595,7 @@ function App() {
                           style={{
                             textAlign: "center",
                             color: "var(--accent-text)",
+                            fontSize: 20,
                           }}
                         >
                           {mintAmount}
@@ -586,7 +611,6 @@ function App() {
                           +
                         </StyledRoundButton>
                       </s.Container>
-                    </RoundButtonWrapper>
 
                     <s.SpacerSmall />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
@@ -609,18 +633,18 @@ function App() {
             <s.SpacerMedium />
 
 
-            <s.TextDescription
+            {/* <s.TextDescription
               style={{
                 textAlign: "center",
                 color: "var(--primary-text)",
               }}
             >
               You can mint 50 ORACLE NFTs per session!
-            </s.TextDescription>
+            </s.TextDescription> */}
             <s.SpacerSmall />
 
 
-            <s.TextTitle
+            {/* <s.TextTitle
               style={{
                 textAlign: "center",
                 fontSize: 20,
@@ -653,7 +677,7 @@ function App() {
               successfully mint your NFT. We recommend that you don't lower the
               gas limit. If your transaction fails try increasing your Gas Limit by clicking EDIT.
               The Gas Limit  is not the final price you pay for gas, but the higher it is the more likely your transaction will be successful...
-            </s.TextDescription>
+            </s.TextDescription> */}
 
           </s.Container>
           <s.SpacerLarge />

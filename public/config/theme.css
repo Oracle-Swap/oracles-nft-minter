@@ -2,11 +2,11 @@
   background: linear-gradient(90deg, rgba(234,190,42,1) 0%, rgba(0,0,0,1) 50%, rgba(234,190,42,1) 100%);
   --primary: #background: rgb(234,190,42);
   --primary-text: #ffffff;
-  --secondary: #ffd54b;
+  --secondary: #ffcd2a;
   --secondary-text: #ffffff;
   --accent: #000000d8;
   --accent-text: #ffffff;
-  --gold-gradient-box: #ffc400be; 
+  --gold-gradient-box: #ffc40000; 
 }
 
 
