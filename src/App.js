@@ -18,7 +18,8 @@ export const StyledButton = styled.button`
   padding: 10px;
   border-radius: 50px;
   border: none;
-  background-color: var(--secondary);
+  background: rgb(209,170,41);
+  background: linear-gradient(176deg, rgba(209,170,41,1) 0%, rgba(234,190,42,1) 45%, rgba(255,226,129,1) 100%);
   padding: 10px;
   font-weight: bold;
   color: var(--secondary-text);
@@ -38,7 +39,8 @@ export const StyledRoundButton = styled.button`
   padding: 10px;
   border-radius: 100%;
   border: none;
-  background-color: var(--secondary);
+  background: rgb(209,170,41);
+  background: linear-gradient(176deg, rgba(209,170,41,1) 0%, rgba(234,190,42,1) 45%, rgba(255,226,129,1) 100%);
   padding: 10px;
   font-weight: bold;
   font-size: 15px;
@@ -639,9 +641,9 @@ function App() {
                 color: "var(--primary-text)",
               }}
             >
-              You can mint 50 ORACLE NFTs per session!
-            </s.TextDescription> */}
-            <s.SpacerSmall />
+              📈 BONDING CURVE: The price of The Oracles increase by 5% everyday starting on April 10th, until the mint phase is over.
+            </s.TextDescription>
+            <s.SpacerSmall /> */}
 
 
             {/* <s.TextTitle
