@@ -121,7 +121,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`You are getting closer!`);
+  const [feedback, setFeedback] = useState(`You are making history!`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -467,7 +467,7 @@ function App() {
               1 Oracle PLEDGE NFT = 10,000 Airdrop Points
             </s.TextTitle> */}
 
-            <s.TextTitle
+            {/* <s.TextTitle
               style={{
                 textAlign: "center",
                 fontSize: 30,
@@ -477,7 +477,8 @@ function App() {
               }}
             >
               {data.totalSupply} / {CONFIG.MAX_SUPPLY}
-            </s.TextTitle>
+            </s.TextTitle> */}
+
             <s.TextDescription
               style={{
                 textAlign: "center",
@@ -511,7 +512,7 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
+                  {CONFIG.NFT_NAME} cost {CONFIG.DISPLAY_COST}{" "}
                   {CONFIG.NETWORK.SYMBOL}
                 </s.TextTitle>
                 <s.SpacerXSmall />

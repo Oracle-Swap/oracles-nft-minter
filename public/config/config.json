@@ -6,8 +6,8 @@
     "SYMBOL": "SGB",
     "ID": 19
   },
-  "NFT_NAME": "Oracle NFT",
-  "SYMBOL": "PLEDGE",
+  "NFT_NAME": "The Oracles",
+  "SYMBOL": "ORCLS",
   "MAX_SUPPLY": 50000,
   "ETH_COST": 1000,
   "DISPLAY_COST": 1000,
