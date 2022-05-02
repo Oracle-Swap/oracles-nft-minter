@@ -190,6 +190,11 @@ function App() {
     setMintAmount(newMintAmount);
   };
 
+  const whaleMint = () => {
+    let whaleMintAmount = 50;
+    setMintAmount(whaleMintAmount);
+  };
+
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
       dispatch(fetchData(blockchain.account));
@@ -630,7 +635,21 @@ function App() {
                         }}
                       >
                         {claimingNft ? "BUSY" : "MINT"}
+                      </StyledButton>  
+                    </s.Container>
+
+                    <s.SpacerSmall />
+                    
+                    <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                      <StyledButton
+                        onClick={(e) => {
+                          whaleMint();
+
+                        }}
+                      >
+                        🐋
                       </StyledButton>
+                      
                     </s.Container>
 
                   </>
