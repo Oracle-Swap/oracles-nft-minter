@@ -149,7 +149,7 @@ function App() {
     let totalGasLimit = String(gasLimit * mintAmount);
     console.log("Cost: ", totalCostEther);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
+    setFeedback(`Minting ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
       .mint(mintAmount)
@@ -167,7 +167,7 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Songbird Explorer to view it.`
+          `You have claimed ${CONFIG.NFT_NAME}!`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -223,12 +223,12 @@ function App() {
   return (
     <s.Screen>
       <ResponsiveWrapper>
-        <video 
+        <video
           autoPlay
           loop
           muted
           style={{
-            position: "fixed", 
+            position: "fixed",
             width: "100%",
             left: "50%",
             top: "50%",
@@ -239,8 +239,8 @@ function App() {
 
 
           }}>
-            
-            <source src={loop} type="video/mp4" />
+
+          <source src={loop} type="video/mp4" />
 
         </video>
 
@@ -248,7 +248,7 @@ function App() {
           flex={1}
           ai={"center"}
           style={{ padding: 24, backgroundColor: "var(--primary)", }}
-          // image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.gif" : null}
+        // image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.gif" : null}
         >
           <a rel="noopener noreferrer" href="https://oracleswap.io">
             <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
@@ -269,6 +269,8 @@ function App() {
 
           </div>
 
+
+
           <s.Container flex={1} jc={"center"} ai={"center"}>
             <StyledImg alt={"oraclegif"} src={"/config/images/example.gif"} />
           </s.Container>
@@ -278,7 +280,7 @@ function App() {
           </div> */}
 
 
-{/* 
+          {/* 
           <s.SpacerSmall />
 
           <s.Container
@@ -525,7 +527,7 @@ function App() {
                   {CONFIG.NETWORK.SYMBOL}
                 </s.TextTitle>
                 <s.SpacerXSmall />
-{/* 
+                {/* 
                 <s.TextTitle
                   style={{
                     textAlign: "center",
@@ -590,39 +592,39 @@ function App() {
 
                     <s.SpacerMedium />
 
-                      <s.Container ai={"center"} jc={"center"} fd={"row"} style={{width: 125}}>
-                        <StyledRoundButton
-                          style={{ lineHeight: 0.4 }}
-                          disabled={claimingNft ? 1 : 0}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            decrementMintAmount();
-                          }}
-                        >
-                          -
-                        </StyledRoundButton>
-                        <s.SpacerMedium />
+                    <s.Container ai={"center"} jc={"center"} fd={"row"} style={{ width: 125 }}>
+                      <StyledRoundButton
+                        style={{ lineHeight: 0.4 }}
+                        disabled={claimingNft ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          decrementMintAmount();
+                        }}
+                      >
+                        -
+                      </StyledRoundButton>
+                      <s.SpacerMedium />
 
-                        <s.TextDescription
-                          style={{
-                            textAlign: "center",
-                            color: "var(--accent-text)",
-                            fontSize: 20,
-                          }}
-                        >
-                          {mintAmount}
-                        </s.TextDescription>
-                        <s.SpacerMedium />
-                        <StyledRoundButton
-                          disabled={claimingNft ? 1 : 0}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            incrementMintAmount();
-                          }}
-                        >
-                          +
-                        </StyledRoundButton>
-                      </s.Container>
+                      <s.TextDescription
+                        style={{
+                          textAlign: "center",
+                          color: "var(--accent-text)",
+                          fontSize: 20,
+                        }}
+                      >
+                        {mintAmount}
+                      </s.TextDescription>
+                      <s.SpacerMedium />
+                      <StyledRoundButton
+                        disabled={claimingNft ? 1 : 0}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          incrementMintAmount();
+                        }}
+                      >
+                        +
+                      </StyledRoundButton>
+                    </s.Container>
 
                     <s.SpacerSmall />
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
@@ -635,11 +637,11 @@ function App() {
                         }}
                       >
                         {claimingNft ? "BUSY" : "MINT"}
-                      </StyledButton>  
+                      </StyledButton>
                     </s.Container>
 
                     <s.SpacerSmall />
-                    
+
                     <s.Container ai={"center"} jc={"center"} fd={"row"}>
                       <StyledButton
                         onClick={(e) => {
@@ -649,7 +651,7 @@ function App() {
                       >
                         🐋
                       </StyledButton>
-                      
+
                     </s.Container>
 
                   </>
@@ -833,6 +835,10 @@ function App() {
           </s.Container>
 
           <s.SpacerLarge /> */}
+
+          <StyledLink target={"_blank"} href={"https://seer.oracleswap.io/"}>
+            {"SEE YOU ORACLES"}
+          </StyledLink>
 
 
         </s.Container>
