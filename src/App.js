@@ -837,7 +837,7 @@ function App() {
           <s.SpacerLarge /> */}
 
           <StyledLink target={"_blank"} href={"https://seer.oracleswap.io/"}>
-            {"SEE YOU ORACLES"}
+            {"SEE YOUR ORACLES"}
           </StyledLink>
 
 
